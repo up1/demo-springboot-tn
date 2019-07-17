@@ -1,0 +1,5 @@
+FROM openjdk:8u212-b04-jre-stretch
+COPY target/tn.jar /src/tn.jar
+WORKDIR /src
+EXPOSE 8080
+CMD ["java", "-jar", "tn.jar"]
