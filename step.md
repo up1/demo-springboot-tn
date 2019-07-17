@@ -9,7 +9,7 @@ $docker container run --rm -v $(pwd):/src -w /src openjdk:8u212-b04-jdk-stretch 
 
 2. Build Docker Image + JAR file
 ```
-$docker image build -t somkiat/tn:1.0 -f Dockerfile-step2 .
+$docker image build -t somkiat/tn:1.0 -f Dockerfile-step1 .
 ```
 
 3. Run container
@@ -20,7 +20,7 @@ $docker container run -p 8080:8080 somkiat/tn:1.0
 ### Solution 2 :: using [Multi-stage build](https://docs.docker.com/develop/develop-images/multistage-build/)
 1. Build Docker Image + JAR file
 ```
-$docker image build -t somkiat/tn:1.0 -f Dockerfile-step1 .
+$docker image build -t somkiat/tn:1.0 -f Dockerfile-step2 .
 ```
 
 2. Run container
