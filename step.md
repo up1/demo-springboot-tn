@@ -18,4 +18,13 @@ $docker container run -p 8080:8080 somkiat/tn:1.0
 ```
 
 ### Solution 2
+1. Build Docker Image + JAR file
+```
+$docker image build -t somkiat/tn:1.0 -f Dockerfile-step1 .
+```
+
+2. Run container
+```
+$docker container run -p 8080:8080 somkiat/tn:1.0
+```
 
