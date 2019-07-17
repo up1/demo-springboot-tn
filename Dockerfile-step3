@@ -1,0 +1,15 @@
+FROM java_lib
+WORKDIR /src
+ENV PATH=.:$PATH
+COPY .mvn /src/.mvn
+COPY mvnw /src/mvnw
+COPY pom.xml /src/pom.xml
+RUN  mvnw clean dependency:resolve
+COPY . /src/
+RUN mvnw package
+
+FROM openjdk:8u212-b04-jre-stretch
+WORKDIR /data
+COPY --from=0 /src/target/tn.jar /data/tn.jar
+EXPOSE 8080
+CMD ["java", "-jar", "tn.jar"]
